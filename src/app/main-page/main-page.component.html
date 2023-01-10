@@ -1,0 +1,169 @@
+<div class="d-flex flex-column justify-content-center">
+    <div class="container py-3">
+        <div class="border-bottom d-flex flex-wrap py-2">
+            <div
+                *ngFor="let category of categories"
+                class="m-2 fs-5 cursor__pointer"
+                (click)="gotoList()"
+            >
+                {{category}}
+            </div>
+        </div>
+        <div class="my-3">
+            <div id="carouselExampleIndicators" class="carousel slide">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active img__bg">
+                    <img 
+                        src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F6927566.jpg&q=60&c=sc&orient=true&poi=auto&h=512" 
+                        class="d-block w-100 img__wrapper"
+                        (click)="selectItem( '1' )"
+                    >
+                  </div>
+                  <div class="carousel-item img__bg">
+                    <img 
+                        src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F9428290.jpg&q=60&c=sc&orient=true&poi=auto&h=512" 
+                        class="d-block w-100 img__wrapper"
+                        (click)="selectItem( '2' )"
+                    >
+                  </div>
+                  <div class="carousel-item img__bg">
+                    <img 
+                        src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F9224340.jpg&q=60&c=sc&orient=true&poi=auto&h=512" 
+                        class="d-block w-100 img__wrapper"
+                        (click)="selectItem( '4' )"
+                    >
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon " aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+        </div>
+        <div>
+            <div class="fs-3 border-bottom py-2">
+                RANKING
+            </div>
+            <div 
+                class="row my-2 cursor__pointer"
+                (click)="selectItem( '6' )"    
+            >
+                <div 
+                    class="col-6 d-flex my-2"
+                    style="border-right: 1px solid #858d94;"    
+                >
+                    <div class="fs-3 text-bold mx-2">1.</div>
+                    <div class="flex-1 d-flex justify-content-center">
+                        <img 
+                            class="ranking__img"
+                            src="https://www.allrecipes.com/thmb/Ros6enGmA95kyhtpuXr1gCBahaM=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/7401695-59662f0f08fc4e06b9d25322ee6b8538.jpg"
+                        >
+                    </div>
+                </div>
+                <div class="col-6 d-flex justify-content-center align-items-center">
+                    <div class="w-75">
+                        <div class="fs-3 my-4">
+                            Pumpkin Crumb Cake
+                        </div>
+                        <div class="fs-6" style="color: #858d94;">
+                            This pumpkin crumb cake is three layers of delicious! With a cakey crust, a smooth pumpkin custard filling, and a buttery walnut topping, it's sure to be a favorite with your family around the Thanksgiving holiday or anytime the mood for pumpkin strikes. This recipe was given to me by a friend and has always been a hit with my children and family.
+                        </div>
+                        <div class="fs-7 my-3 d-flex justify-content-end align-items-center">
+                            <div class="mt-1">Read More</div>
+                            <i class="bi bi-caret-right-fill mx-2"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div 
+                class="row my-2 cursor__pointer"
+                (click)="selectItem( '8' )"     
+            >
+                <div 
+                    class="col-6 d-flex justify-content-center align-items-center"
+                    style="border-right: 1px solid #858d94;"       
+                >
+                    <div class="w-75">
+                        <div class="fs-3 my-4">
+                            Down Home Chitterlings
+                        </div>
+                        <div class="fs-6" style="color: #858d94;">
+                            Chitterlings, made from pigs' intestines, are a favorite among Southern families. Traditionally, they are prepared during the holiday season, but deep freezing makes them available year-round. Delicious served with spaghetti or turnip greens. Be certain to pass the vinegar and hot sauce!
+                        </div>
+                        <div class="fs-7 my-3 d-flex justify-content-end align-items-center">
+                            <div class="mt-1">Read More</div>
+                            <i class="bi bi-caret-right-fill mx-2"></i>
+                        </div>
+                    </div>
+                </div>
+                <div 
+                    class="col-6 d-flex my-2"
+                >   
+                    <div class="fs-3 text-bold mx-2">2.</div>
+                    <div class="flex-1 d-flex justify-content-center">
+                        <img 
+                            class="ranking__img"
+                            src="https://www.allrecipes.com/thmb/ctQKgmXz7Ex_MScneZgJaewfiR8=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/924533-635550d411734fa9acb6f06400231b79.jpg"
+                        >
+                    </div>
+                </div>
+            </div>
+            <div 
+                class="row my-2 cursor__pointer"
+                (click)="selectItem( '9' )"    
+            >
+                <div 
+                    class="col-6 d-flex my-2"
+                    style="border-right: 1px solid #858d94;"    
+                >
+                    <div class="fs-3 text-bold mx-2">3.</div>
+                    <div class="flex-1 d-flex justify-content-center">
+                        <img 
+                            class="ranking__img"
+                            src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F9096072.jpg&q=60&c=sc&orient=true&poi=auto&h=512"
+                        >
+                    </div>
+                </div>
+                <div class="col-6 d-flex justify-content-center align-items-center">
+                    <div class="w-75">
+                        <div class="fs-3 my-4">
+                            Pigs in a Blanket
+                        </div>
+                        <div class="fs-6" style="color: #858d94;">
+                            This pumpkin crumb cake is three layers of delicious! With a cakey crust, a smooth pumpkin custard filling, and a buttery walnut topping, it's sure to be a favorite with your family around the Thanksgiving holiday or anytime the mood for pumpkin strikes. This recipe was given to me by a friend and has always been a hit with my children and family.
+                        </div>
+                        <div class="fs-7 my-3 d-flex justify-content-end align-items-center">
+                            <div class="mt-1">Read More</div>
+                            <i class="bi bi-caret-right-fill mx-2"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div 
+            class="my-4 d-flex justify-content-center align-items-center cursor__pointer"
+            style="height: 100px;"
+        >
+            <div 
+                class="fs-5 mt-2"
+                (click)="gotoList()"    
+            >
+                Looking for another receipe?
+            </div>
+            <i 
+                class="bi bi-chevron-double-right mx-2"
+                style="font-size: 18px;"    
+            ></i>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</div>

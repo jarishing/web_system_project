@@ -1,0 +1,204 @@
+<div class="d-flex flex-column justify-content-center">
+    <div class="container py-3">
+        <div class="my-3 fs-6" style="font-weight: 700;">
+            {{data.category}}
+        </div>
+        <div class="my-3 fs-1" style="font-weight: 700;">
+            {{data.title}}
+        </div>
+        <div class="d-flex align-items-center">
+            <div class="d-flex" style="margin-right: 1rem;">
+                <div 
+                    *ngFor="let star of [].constructor(this.data.rating);"
+                    class="mx-1"
+                >
+                    <div>
+                        <i class="bi bi-star-fill" style="color: tomato;"></i>
+                    </div>
+                </div>
+                <div 
+                    *ngFor="let star of [].constructor(5-this.data.rating);"
+                    class="mx-1">
+                    <i class="bi bi-star" style="color: tomato;"></i>
+                </div>
+            </div>
+            <div class="px-3 fs-6 mt-1" style="border-left: 1px solid darkgray;font-weight: 700;">
+                {{data.review.length}} REVIEWS
+            </div>
+            <div class="px-3 fs-6 mt-1" style="border-left: 1px solid darkgray;">
+                <div 
+                    *ngIf="checkFavourite(data.id) == false"
+                    class="px-3 py-2 cursor__pointer" 
+                    style="background-color: tomato;font-weight: 500;color:#fff;"
+                    (click)="like( data.id )"
+                >
+                    Like
+                </div>
+                <div 
+                    *ngIf="checkFavourite(data.id) == true"
+                    class="px-3 py-2 cursor__pointer" 
+                    style="background-color: rgb(123, 122, 122);font-weight: 500;color:#fff;"
+                    (click)="dislike( data.id )"    
+                >
+                    Unlike
+                </div>
+            </div>
+        </div>
+        <div class="my-3 fs-6 w-50">
+            {{data.descri}}
+        </div>
+        <div class="d-flex">
+            <div class="w-50 d-flex">
+                <img 
+                    class="img__box w-75"
+                    src={{data.img}}
+                >
+            </div>
+            <div 
+                class="my-4 w-50 py-2"
+                style="background-color: #f5f6ea;height: fit-content;"    
+            >
+                <div class="row my-3 px-4">
+                    <div class="col-6">
+                        <div class="fs-6 my-2" style="font-weight: 700;">
+                            Prep Time:
+                        </div>
+                        <div class="fs-6">
+                            {{data.prepare.prepTime}} mins
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="fs-6 my-2" style="font-weight: 700;">
+                            Cook Time:
+                        </div>
+                        <div class="fs-6">
+                            {{data.prepare.cookTime}} mins
+                        </div>
+                    </div>
+                </div>
+                <div class="row my-3 px-4">
+                    <div class="col-6">
+                        <div class="fs-6 my-2" style="font-weight: 700;">
+                            Total Time:
+                        </div>
+                        <div class="fs-6">
+                            {{data.prepare.totalTime}} mins
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="fs-6 my-2" style="font-weight: 700;">
+                            Servings
+                        </div>
+                        <div class="fs-6">
+                            {{data.prepare.servings}}
+                        </div>
+                    </div>
+                </div>
+                <div class="row my-3 px-4">
+                    <div class="col-6">
+                        <div class="fs-6 my-2" style="font-weight: 700;">
+                            Yield:
+                        </div>
+                        <div class="fs-6">
+                            {{data.prepare.yield}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="my-4">
+            <div class="fs-1 my-3" style="font-weight: 700;">
+                Ingredients
+            </div>
+            <div 
+                *ngFor="let ingredient of data.ingredients"
+                class="d-flex align-items-center my-2"
+            >
+                <div style="color: tomato;">
+                    <i class="bi bi-dot fs-4"></i>
+                </div>
+                <div class="mx-2">
+                    {{ingredient.times}} X {{ingredient.material}}
+                </div>
+            </div>
+        </div>
+        <div class="my-4">
+            <div class="fs-1 my-3" style="font-weight: 700;">
+                Directions
+            </div>
+            <div 
+                *ngFor="let step of data.directions;let i = index;"
+                class="my-4"
+            >
+                <div class="fs-6" style="font-weight: 700;">
+                    Step {{i + 1}}
+                </div>
+                <div class="w-50">
+                    {{step.step}}
+                </div>
+            </div>
+        </div>
+        <div class="my-4">
+            <div class="fs-1 py-3" style="font-weight: 700;border-bottom: 1px solid darkgray;">
+                Review
+            </div>
+            <div 
+                *ngFor="let rev of data.review"
+            >
+                <app-review
+                    [data]="rev"
+                ></app-review>
+            </div>
+            <div *ngIf="userService.login == true">
+                <form [formGroup]="loginForm" (ngSubmit)="submitComment(data.id)" novalidate>
+                    <div class="py-3 fs-7 d-flex align-items-end" style="font-weight: 700;border-bottom: 1px solid darkgray;">
+                        
+                        <textarea 
+                            placeholder="leave your review"
+                            class="item__review__user"
+                            formControlName="review"
+                        ></textarea>
+                        <button 
+                            type="submit"
+                            class="px-3 cursor__pointer mx-3 d-flex align-items-center " 
+                            style="background-color: tomato;font-weight: 500;color:#fff;height: 32px;"
+                        >
+                            Comment
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</div>
+
+<!-- (click)="submitComment(data.id)" -->
+
+<!-- 
+<div class="fs-6" style="font-weight: 700;">
+    Allrecipes Member
+</div> -->
+<!-- <div class="my-2">
+    <div class="d-flex" style="margin-right: 1rem;">
+        <div class="mx-1">
+            <i class="bi bi-star-fill" style="color: tomato;"></i>
+        </div>
+        <div class="mx-1">
+            <i class="bi bi-star-fill" style="color: tomato;"></i>
+        </div>
+        <div class="mx-1">
+            <i class="bi bi-star-fill" style="color: tomato;"></i>
+        </div>
+        <div class="mx-1">
+            <i class="bi bi-star-fill" style="color: tomato;"></i>
+        </div>
+        <div class="mx-1">
+            <i class="bi bi-star" style="color: tomato;"></i>
+        </div>
+    </div>
+</div>
+<div class="fs-6 w-50">
+    LOVE IT...LOVE IT...LOVE IT. This will be my new favorite, especially for a church-covered dish and/or Christmas morning treat. Tried it three ways: as presented, then another with just chocolate chips and nuts, and another with choc chips, butterscotch chips, and nuts. And, one with walnuts and another with pecans. Delicious. Could eat the whole plate, but better not.
+</div> -->

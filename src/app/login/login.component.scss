@@ -1,0 +1,16 @@
+.base{
+}
+
+.card{
+    width: 400px;
+    height: 350px;
+    box-shadow: 0 0px 8px #798088;
+}
+
+.form-control:focus{
+    outline: none !important;
+}
+
+.main__bg{
+    background-color: tomato;
+}

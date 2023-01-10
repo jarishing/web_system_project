@@ -1,1 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+.base{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;   
+}
+
+.scroll__showing__list {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.flex-1{
+    flex: 1;
+}
+
+.fs-7{
+    font-size: 0.75rem;
+}
+
+.fs-8{
+    font-size: 0.5rem;
+}
+
+.fs-9{
+    font-size: 0.25rem;
+}
+
+.cursor__pointer {
+    cursor: pointer;
+}
